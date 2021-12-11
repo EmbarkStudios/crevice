@@ -87,6 +87,14 @@ impl<W: Write> Writer<W> {
         Self { writer, offset: 0 }
     }
 
+    /// Create a new `Writer`, wrapping a buffer, file, or other type that
+    /// implements [`std::io::Write`]. Also takes a starting offset value,
+    /// which is useful in cases where you need to maintain other alignment
+    /// rules and want to begin a [`Writer`] in the middle of a buffer.
+    pub fn with_starting_offset(writer: W, offset: usize) -> Self {
+        Self { writer, offset }
+    }
+
     /// Write a new value to the underlying buffer, writing zeroed padding where
     /// necessary.
     ///
