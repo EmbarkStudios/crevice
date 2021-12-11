@@ -16,7 +16,7 @@ resolver = "2"
 
 [features]
 default = ["std"]
-std = []
+std = ["glam/std"]
 arrays = ["crevice-derive/arrays", "const_format"]
 
 [workspace]
@@ -31,7 +31,7 @@ bytemuck = "1.4.1"
 mint = "0.5.8"
 
 cgmath = { version = "0.18.0", optional = true }
-glam = { version = "0.20.0", features = ["mint"], optional = true }
+glam = { version = "0.20.0", default-features = false, features = ["mint"], optional = true }
 nalgebra = { version = "0.29.0", features = ["mint"], optional = true }
 
 [dev-dependencies]
